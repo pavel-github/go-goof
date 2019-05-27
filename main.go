@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/mholt/archiver"
+	"github.com/miekg/dns"
 )
 
 func main() {
 	fmt.Println("Hello")
 
-	err := archiver.Archive([]string{"Gopkg.lock", "Gopkg.toml"}, ".Gopkg.tar.gz")
+	err := dns.ListenAndServe("localhost", "", nil)
 	if err != nil {
 		fmt.Println(err)
 	}
